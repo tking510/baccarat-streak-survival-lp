@@ -1,0 +1,1198 @@
+/* ========================================
+   BACCARAT STREAK SURVIVAL - Landing Page
+   ======================================== */
+
+/* リセットと基本設定 */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #FFD700;
+    --gold-dark: #B8860B;
+    --gold-light: #FFF8DC;
+    --red: #DC143C;
+    --red-dark: #8B0000;
+    --black: #0D0D0D;
+    --dark-bg: #1A1A2E;
+    --darker-bg: #0F0F1A;
+    --purple: #4A0E4E;
+    --blue: #1E3A5F;
+    --white: #FFFFFF;
+    --gray: #888888;
+    --light-gray: #F5F5F5;
+    --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+    --gradient-dark: linear-gradient(180deg, #1A1A2E 0%, #0F0F1A 100%);
+    --gradient-red: linear-gradient(135deg, #DC143C, #8B0000);
+    --shadow-gold: 0 0 30px rgba(255, 215, 0, 0.5);
+    --shadow-red: 0 0 30px rgba(220, 20, 60, 0.5);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--darker-bg);
+    color: var(--white);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+.header {
+    background: rgba(15, 15, 26, 0.95);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+/* ========================================
+   ヒーローセクション
+   ======================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 20px 80px;
+    background: var(--gradient-dark);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(220, 20, 60, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(74, 14, 78, 0.3) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--gradient-gold);
+    color: var(--black);
+    padding: 8px 30px;
+    border-radius: 50px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hero-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.title-line {
+    display: block;
+    color: var(--white);
+}
+
+.title-highlight {
+    display: block;
+    font-size: clamp(48px, 10vw, 100px);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+    letter-spacing: 5px;
+}
+
+.hero-subtitle {
+    font-size: clamp(20px, 3vw, 32px);
+    margin-bottom: 30px;
+}
+
+.event-name {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.event-desc {
+    color: var(--white);
+}
+
+.hero-copy {
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    line-height: 2;
+}
+
+/* CTAボタン */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--gradient-gold);
+    color: var(--black);
+    padding: 20px 50px;
+    border-radius: 60px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
+}
+
+.cta-button.pulse {
+    animation: pulse-cta 2s infinite;
+}
+
+@keyframes pulse-cta {
+    0%, 100% { box-shadow: var(--shadow-gold); }
+    50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+}
+
+.cta-button.large {
+    padding: 25px 60px;
+    font-size: 22px;
+}
+
+.cta-icon {
+    font-size: 24px;
+}
+
+/* ヒーローキャラクター */
+.hero-characters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-char {
+    position: absolute;
+    width: 140px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    animation: float 4s ease-in-out infinite;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+.hero-char.char-left {
+    left: 3%;
+    bottom: 5%;
+    animation-delay: 0s;
+}
+
+.hero-char.char-right {
+    right: 3%;
+    bottom: 8%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* パーティクル */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    bottom: -10px;
+    animation: rise 5s infinite;
+    opacity: 0;
+}
+
+@keyframes rise {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1);
+    }
+}
+
+/* ========================================
+   セクション共通
+   ======================================== */
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-en {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: var(--gold);
+}
+
+.title-ja {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900;
+    color: var(--white);
+}
+
+.section-desc {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 15px;
+}
+
+/* ========================================
+   大会概要
+   ======================================== */
+.overview {
+    background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+}
+
+.overview-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.overview-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.overview-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overview-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.overview-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.overview-card h3 {
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.overview-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.overview-sub {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.overview-date {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.overview-card p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.overview-card strong {
+    color: var(--gold);
+}
+
+.overview-note {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin-top: 10px;
+}
+
+.overview-character {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    z-index: 1;
+}
+
+.float-char {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ========================================
+   賞金・特典
+   ======================================== */
+.prizes {
+    background: var(--dark-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.prizes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at 30% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 70% 80%, rgba(220, 20, 60, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.prizes-showcase {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.prize-main {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+    border: 3px solid var(--gold);
+    border-radius: 30px;
+    padding: 50px 80px;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-gold);
+}
+
+.prize-crown {
+    font-size: 60px;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.prize-rank {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.prize-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+}
+
+.prize-amount .currency {
+    font-size: 36px;
+    color: var(--gold);
+}
+
+.prize-amount .number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.prize-label {
+    font-size: 18px;
+    color: var(--white);
+    margin-top: 10px;
+}
+
+.prize-condition {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* 賞金テーブル */
+.prizes-table-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.prizes-table-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.prizes-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.prizes-table th {
+    background: rgba(255, 215, 0, 0.2);
+    color: var(--gold);
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.prizes-table th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.prizes-table th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.prizes-table td {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.prizes-table tr:hover td {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.prizes-table td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.prizes-table td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.rank-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.rank-badge.gold {
+    background: var(--gradient-gold);
+    color: var(--black);
+}
+
+.rank-badge.silver {
+    background: linear-gradient(135deg, #C0C0C0, #E8E8E8, #C0C0C0);
+    color: var(--black);
+}
+
+.rank-badge.bronze {
+    background: linear-gradient(135deg, #CD7F32, #E8A862, #CD7F32);
+    color: var(--black);
+}
+
+.rank-badge.dream {
+    background: linear-gradient(135deg, #9B59B6, #8E44AD);
+    color: var(--white);
+}
+
+.prize-cash {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.prize-ticket {
+    font-size: 16px;
+    font-weight: 700;
+    color: #9B59B6;
+}
+
+.condition {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.prizes-character {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    z-index: 1;
+}
+
+/* ========================================
+   ドリームチケット
+   ======================================== */
+.dream-ticket {
+    background: linear-gradient(180deg, var(--dark-bg) 0%, var(--purple) 50%, var(--dark-bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.dream-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.dream-visual {
+    text-align: center;
+}
+
+.ticket-stack {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.ticket {
+    background: linear-gradient(135deg, #9B59B6, #8E44AD, #9B59B6);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 40px 60px;
+    box-shadow: 0 20px 50px rgba(155, 89, 182, 0.5);
+    position: relative;
+}
+
+.ticket::before,
+.ticket::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: var(--dark-bg);
+    border-radius: 50%;
+}
+
+.ticket::before {
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ticket::after {
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ticket-label {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.ticket-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.dream-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.value-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.value-amount {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.value-desc {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dream-text {
+    padding: 20px;
+}
+
+.dream-title {
+    font-size: clamp(24px, 3vw, 32px);
+    margin-bottom: 30px;
+}
+
+.dream-title .highlight {
+    color: var(--gold);
+}
+
+.dream-desc {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.dream-detail {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+    line-height: 2;
+}
+
+.dream-detail strong {
+    color: var(--gold);
+}
+
+.dream-cta {
+    font-size: 18px;
+    color: var(--white);
+    line-height: 2;
+}
+
+.highlight-text {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.dream-character {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    z-index: 1;
+}
+
+/* ========================================
+   ルール
+   ======================================== */
+.rules {
+    background: var(--darker-bg);
+    position: relative;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.rule-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 35px 30px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.rule-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rule-card:hover {
+    border-color: rgba(255, 215, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.rule-card.warning {
+    border-color: rgba(220, 20, 60, 0.5);
+    background: rgba(220, 20, 60, 0.1);
+}
+
+.rule-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.rule-card h3 {
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.rule-list {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.rule-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.rule-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+.rule-note {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.rule-main {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+.rule-main strong {
+    color: var(--red);
+}
+
+.rule-sub {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+}
+
+.rule-warning {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(220, 20, 60, 0.2);
+    border-radius: 10px;
+}
+
+.rule-warning strong {
+    color: var(--red);
+}
+
+.rules-character {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    z-index: 1;
+}
+
+/* ========================================
+   CTAセクション
+   ======================================== */
+.cta-section {
+    background: linear-gradient(180deg, var(--darker-bg) 0%, var(--red-dark) 50%, var(--darker-bg) 100%);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cta-desc {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.cta-note {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 25px;
+}
+
+.cta-characters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.cta-char {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    animation: float 4s ease-in-out infinite;
+}
+
+.cta-char.left {
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cta-char.right {
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 2s;
+}
+
+/* ========================================
+   利用規約
+   ======================================== */
+.terms {
+    background: var(--darker-bg);
+    padding: 60px 0;
+}
+
+.terms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.terms-header h2 {
+    font-size: 18px;
+    color: var(--white);
+}
+
+.terms-toggle {
+    font-size: 14px;
+    color: var(--gold);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.terms-toggle:hover {
+    color: var(--gold-light);
+}
+
+.terms-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.terms-content.open {
+    max-height: 1000px;
+}
+
+.terms-content ul {
+    list-style: none;
+}
+
+.terms-content li {
+    padding: 12px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terms-content li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+.footer {
+    background: var(--black);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.copyright {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   レスポンシブ
+   ======================================== */
+@media (max-width: 1024px) {
+    .hero-char {
+        width: 120px;
+    }
+    
+    .float-char {
+        width: 100px;
+    }
+    
+    .dream-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .cta-char {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px 60px;
+    }
+    
+    .hero-characters {
+        display: none;
+    }
+    
+    .cta-button {
+        padding: 15px 35px;
+        font-size: 16px;
+    }
+    
+    .cta-button.large {
+        padding: 18px 40px;
+        font-size: 18px;
+    }
+    
+    .prize-main {
+        padding: 30px 40px;
+    }
+    
+    .prize-amount .number {
+        font-size: 48px;
+    }
+    
+    .overview-character,
+    .prizes-character,
+    .dream-character,
+    .rules-character {
+        display: none;
+    }
+    
+    .cta-characters {
+        display: none;
+    }
+    
+    .ticket {
+        padding: 30px 40px;
+    }
+    
+    .ticket-value {
+        font-size: 36px;
+    }
+    
+    .value-amount {
+        font-size: 36px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 24px;
+    }
+    
+    .title-highlight {
+        font-size: 48px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 18px 20px;
+    }
+    
+    .prize-main {
+        padding: 25px 20px;
+    }
+    
+    .prize-amount .currency {
+        font-size: 24px;
+    }
+    
+    .prize-amount .number {
+        font-size: 36px;
+    }
+    
+    .prizes-table {
+        font-size: 14px;
+    }
+    
+    .prizes-table th,
+    .prizes-table td {
+        padding: 12px 8px;
+    }
+    
+    .rank-badge {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    
+    .prize-cash,
+    .prize-ticket {
+        font-size: 14px;
+    }
+    
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* アニメーション遅延 */
+.overview-card:nth-child(1) { transition-delay: 0.1s; }
+.overview-card:nth-child(2) { transition-delay: 0.2s; }
+.overview-card:nth-child(3) { transition-delay: 0.3s; }
+
+.rule-card:nth-child(1) { transition-delay: 0.1s; }
+.rule-card:nth-child(2) { transition-delay: 0.2s; }
+.rule-card:nth-child(3) { transition-delay: 0.3s; }
+.rule-card:nth-child(4) { transition-delay: 0.4s; }
+.rule-card:nth-child(5) { transition-delay: 0.5s; }
