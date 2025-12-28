@@ -788,6 +788,53 @@ section {
     font-weight: 700;
 }
 
+.dream-explanation {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.dream-explanation h3 {
+    color: var(--gold);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.dream-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dream-features li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.dream-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.dream-features li strong {
+    color: var(--white);
+}
+
+.highlight-gold {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
 .dream-character {
     position: absolute;
     right: -5%;
