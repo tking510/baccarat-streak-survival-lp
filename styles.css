@@ -427,14 +427,15 @@ section {
 
 .overview-character {
     position: absolute;
-    right: -5%;
-    bottom: 5%;
+    right: -10%;
+    bottom: -5%;
     z-index: 1;
-    opacity: 0.8;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .float-char {
-    width: 150px;
+    width: 120px;
     height: auto;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
     animation: float 4s ease-in-out infinite;
